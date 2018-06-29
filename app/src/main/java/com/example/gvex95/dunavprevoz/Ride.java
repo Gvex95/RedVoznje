@@ -9,18 +9,20 @@ public class Ride {
     private String dan;
     private String mesto_polaska;
     private String mesto_dolaska;
-    private String notifikacijaText;
-    private int spinnerIndex;
-    private String notificationColor;
+    private String notifikacija_boja;
+    private String notifikacija_vreme;
 
-    public Ride(int id, int polazak, int dolazak, String dan, String mesto_polaska, String mesto_dolaska, String notfikacijaText) {
+
+    public Ride(int id, int polazak, int dolazak, String dan, String mesto_polaska, String mesto_dolaska, String notifikacija_boja, String notifikacija_vreme) {
         this.id = id;
         this.polazak = polazak;
         this.dolazak = dolazak;
         this.dan = dan;
         this.mesto_polaska = mesto_polaska;
         this.mesto_dolaska = mesto_dolaska;
-        this.notifikacijaText = notfikacijaText;
+        this.notifikacija_boja = notifikacija_boja;
+        this.notifikacija_vreme = notifikacija_vreme;
+
     }
 
     public int getId() {
@@ -71,28 +73,21 @@ public class Ride {
         this.mesto_dolaska = mestod_dolaska;
     }
 
-    public String getNotifikacijaText() {
-        return notifikacijaText;
+    public String getNotifikacija_boja() {
+        return notifikacija_boja;
     }
 
-    public void setNotifikacijaText(String notifikacijaText) {
-        this.notifikacijaText = notifikacijaText;
+    public void setNotifikacija_boja(String notifikacija_boja) {
+        this.notifikacija_boja = notifikacija_boja;
+    }
+
+    public String getNotifikacija_vreme() {
+        return notifikacija_vreme;
+    }
+
+    public void setNotifikacija_vreme(String notifikacija_vreme) {
+        this.notifikacija_vreme = notifikacija_vreme;
     }
 
 
-    public String getNotificationColor() {
-        return notificationColor;
-    }
-
-    public void setNotificationColor(String notificationColor) {
-        this.notificationColor = notificationColor;
-    }
-
-    public int getSpinnerIndex() {
-        return spinnerIndex;
-    }
-
-    public void setSpinnerIndex(int spinnerIndex) {
-        this.spinnerIndex = spinnerIndex;
-    }
 }

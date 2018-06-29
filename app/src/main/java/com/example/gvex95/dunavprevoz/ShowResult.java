@@ -1,9 +1,12 @@
 package com.example.gvex95.dunavprevoz;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -17,8 +20,9 @@ public class ShowResult extends Activity{
     private ListAdapter listAdapter;
     private DatabaseHelper databaseHelper;
     private Button swap;
-
+    private Intent biceDialog;
     private Bundle extras;
+    private Bundle extrasDialog;
 
     private String tableName;
     private int opcija;
@@ -33,7 +37,7 @@ public class ShowResult extends Activity{
         rideLst = findViewById(R.id.lista);
         swap = findViewById(R.id.swap);
 
-
+        extrasDialog = new Bundle();
 
         databaseHelper = new DatabaseHelper(this);
         databaseHelper.getReadableDatabase();
@@ -43,7 +47,6 @@ public class ShowResult extends Activity{
         String mestoPolaska = extras.getString("Prvi");
         String mestoDolaska = extras.getString("Drugi");
         opcija = extras.getInt("Switch");
-        Log.wtf("Opcija",Integer.toString(opcija,10));
 
         tableName = getTableName(mestoPolaska,mestoDolaska);
 
@@ -87,6 +90,18 @@ public class ShowResult extends Activity{
             }
         });
 
+        biceDialog = new Intent(ShowResult.this, BiceDialog.class);
+
+        rideLst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                extrasDialog.putString("Pozicija", Integer.toString(i));
+                extrasDialog.putString("ImeTabele",tableName);
+                biceDialog.putExtras(extrasDialog);
+                startActivity(biceDialog);
+            }
+        });
+
 
 
     }
@@ -99,6 +114,7 @@ public class ShowResult extends Activity{
     protected void onResume() {
         super.onResume();
 
+        //Log.wtf("OnResumePozvan","DA");
         if(opcija == 1)
         {
             mRideList = databaseHelper.getAllRides(tableName); //preuzmi sve iz ove tabele
@@ -125,19 +141,15 @@ public class ShowResult extends Activity{
         if (minutes < 10)
         {
             String minute = String.format("%02d", minutes);
-            Log.wtf("Minuti",minute);
+
             vreme = Integer.toString(hours) + minute;
-            Log.wtf("VremeString",vreme);
+
         }else
         {
-            Log.wtf("Sati",Integer.toString(hours,10));
-            Log.wtf("Minuti",Integer.toString(minutes,10));
 
             vreme = Integer.toString(hours) + Integer.toString(minutes);
-            Log.wtf("VremeString",vreme);
         }
         time = Integer.parseInt(vreme);
-        Log.wtf("VremeInteger",Integer.toString(time,10));
         return  time;
     }
 
@@ -170,7 +182,6 @@ public class ShowResult extends Activity{
                 tmp = "N";
                 break;
         }
-        Log.wtf("Danas je", tmp);
         return tmp;
     }
 

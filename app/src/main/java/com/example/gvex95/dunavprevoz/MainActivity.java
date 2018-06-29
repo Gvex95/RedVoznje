@@ -153,8 +153,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int position1 = list1.getSelectedItemPosition();
                 int position2 = list2.getSelectedItemPosition();
-                Log.wtf("Pozicija1",Integer.toString(position1,10));
-                Log.wtf("Pozicja2",Integer.toString(position2,10));
+
 
                 if (list1.getAdapter().equals(spinnerAdapter1)) {
                     list1.setAdapter(spinnerAdapter2);

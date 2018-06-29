@@ -92,11 +92,12 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
-    <Spinner
-        android:id="@+id/vremeNotifikacije"
-        android:layout_width="106dp"
+    <TextView
+        android:id="@+id/vremeDoIsteka"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:entries="@array/notifikacije"
+        android:gravity="center"
+        android:text="Iskljucena"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/vreme_dolaska"

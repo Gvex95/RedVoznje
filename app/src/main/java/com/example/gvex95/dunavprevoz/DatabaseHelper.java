@@ -67,7 +67,13 @@ public class DatabaseHelper extends SQLiteAssetHelper {
         {
             while(!cursor.isAfterLast())
             {
-            ride = new Ride(cursor.getInt(0),cursor.getInt(1),cursor.getInt(2),cursor.getString(3),cursor.getString(4),cursor.getString(5), "Notifikacija");
+            ride = new Ride(cursor.getInt(0),cursor.getInt(1),cursor.getInt(2),cursor.getString(3),cursor.getString(4),
+                    cursor.getString(5), cursor.getString(6),cursor.getString(7));
+
+            //Log.wtf("CitamBazu",Integer.toString(cursor.getInt(0)));
+            //Log.wtf("CitamBazu",cursor.getString(6));
+            //Log.wtf("CitamBazu",cursor.getString(7));
+            //Log.wtf("CitamBazu","----------------");
 
             rideList.add(ride);
             cursor.moveToNext();
@@ -82,31 +88,54 @@ public class DatabaseHelper extends SQLiteAssetHelper {
     {
         Ride ride = null;
         String upit = "SELECT * FROM " + tableName + " WHERE " + time + " < POLAZAK AND DAN like " + "'%" + day + "%'";
-        Log.wtf("Upit",upit);
+        //Log.wtf("Upit",upit);
 
         List<Ride> rideList = new ArrayList<>();
         openDatabase();
         //ovo nece raditi sigurno zato proveri ovo cudo
         Cursor cursor = mDatabase.rawQuery(upit,null);
-        int counter = 0;
         if (!cursor.moveToFirst())
         {
             Log.wtf("DatabaseHelper","Kursor je prazan, mozda query nije vratio nista");
         }else {
             while (!cursor.isAfterLast()) {
-                ride = new Ride(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), "Notifikacija");
 
+                ride = new Ride(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4),
+                        cursor.getString(5), cursor.getString(6),cursor.getString(7));
                 rideList.add(ride);
                 cursor.moveToNext();
-                counter++;
+
             }
         }
-        Log.wtf("Brojac",Integer.toString(counter,10));
         cursor.close();
         closeDatabase();
         return rideList;
 
     }
+
+    public String getString(int position, String columnName, String tableName)
+    {
+        String returnString = "";
+        String upit = "SELECT " + columnName + " FROM " + tableName + " WHERE " + "ID = " + position;
+        //Log.wtf("Upit:",upit);
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery(upit,null);
+
+        if (!cursor.moveToFirst())
+        {
+            //Log.wtf("DatabaseHelper","Kursor je prazan, mozda query nije vratio nista");
+        }else {
+            while (!cursor.isAfterLast()) {
+                returnString = cursor.getString(0);
+            }
+        }
+        cursor.close();
+        closeDatabase();
+
+        return  returnString;
+
+    }
+
 
 
 
