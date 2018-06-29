@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/boja"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="@string/rsn"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineLeft" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.14" />
+
+    <TextView
+        android:id="@+id/polazak"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="@string/mesto_polaska"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7213542" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.44" />
+
+    <TextView
+        android:id="@+id/dolazak"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="@string/mesto_dolaska"
+        app:layout_constraintBaseline_toBaselineOf="@+id/polazak"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/notifikacijaTekst"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="@string/notifikacijaText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dolazak"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+    <TextView
+        android:id="@+id/vreme_polaska"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="@string/vreme_dolaska"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft" />
+
+    <TextView
+        android:id="@+id/vreme_dolaska"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="@string/vreme_dolaska"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/vreme_polaska"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+
+    <Spinner
+        android:id="@+id/vremeNotifikacije"
+        android:layout_width="106dp"
+        android:layout_height="0dp"
+        android:entries="@array/notifikacije"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vreme_dolaska"
+        app:layout_constraintTop_toBottomOf="@+id/notifikacijaTekst" />
+
+</android.support.constraint.ConstraintLayout>

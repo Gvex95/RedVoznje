@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/switchButton"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="73dp">
+
+    <Spinner
+        android:id="@+id/lista2"
+        android:layout_width="313dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lista1" />
+
+
+    <Spinner
+        android:id="@+id/lista1"
+        android:layout_width="315dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/pretrazi_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="148dp"
+        android:text="@string/pretrazi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="368dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="256dp"
+        android:gravity="left"
+        android:text="@string/opcije"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="188dp"
+        android:shadowColor="@android:color/holo_blue_bright"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="277dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Naredni Autobusi"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="277dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="184dp"
+        android:gravity="center"
+        android:text="@string/ceo"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/swapButton"
+        android:layout_width="61dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:text="Swap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
